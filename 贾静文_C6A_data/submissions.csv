@@ -1,0 +1,11 @@
+﻿代号,提交编号,挑战,提交时间,平台状态,任务状态,仓库
+C2,sub-20261007023414-2c9b89f9,面向可靠 AI 数学的自然语言到可验证推理：语义归约框架,2026-10-07T02:34:14.735Z,checked,pending_teacher_review,https://github.com/ZayneWenner/ai-for-math-paper
+C1,sub-20261006131826-e4408394,C1 课程资料获取与翻译（Stanford Vibe Coding 课程中文译介包）,2026-10-06T13:18:26.413Z,checked,pending_teacher_review,https://github.com/ZayneWenner/stanford-vibe-coding-zh
+C4D,sub-20261103072349-a887eacc,C4D 本地大模型 Agent 技能,2026-11-03T07:23:49.947Z,checked,pending_teacher_review,https://github.com/ZayneWenner/C4D-Local-LLM-Agent-Skill
+C5A,sub-20261103073305-aa8bf1ab,C5A GitHub 入门与仓库理解：anthropics/skills 仓库分析,2026-11-03T07:33:05.379Z,checked,pending_teacher_review,https://github.com/ZayneWenner/C5A-GitHub-Repo-Analysis
+C4A,sub-20261008024143-1873e4c3,C4A 技能提交自动评审：Skill 评审器,2026-10-08T02:41:43.088Z,checked,pending_teacher_review,https://github.com/ZayneWenner/C4A-Skill-Evaluator
+C4B,sub-20261008110550-fdeb0d27,挑战_C4B 公众号文章生成技能,2026-10-08T11:05:50.542Z,checked,pending_teacher_review,https://github.com/ZayneWenner/C4B-WeChat-Article-Skill
+C4C,sub-20261008142603-a4bf6384,C4C 作业自动求解与排版,2026-10-08T14:26:03.472Z,checked,pending_teacher_review,https://github.com/ZayneWenner/C4C-Homework-Solver-Pipeline
+C4,sub-20261103071444-b40b553e,口播脚本生成器（koubo-script-generator）· C4 技能分享与传播,2026-11-03T07:14:44.962Z,checked,pending_teacher_review,https://github.com/ZayneWenner/C4-Koubo-Script-Generator
+C5,sub-20261103074505-d7cf4e15,C5 GitHub Repository：localmap-agent 本地地图 Agent,2026-11-03T07:45:05.524Z,needs_revision,,https://github.com/ZayneWenner/localmap-agent
+C2A,sub-20261006173800-d7c4296d,MetaScope：已知-未知边界元认知校准基准,2026-10-06T17:38:00.549Z,checked,pending_teacher_review,https://github.com/ZayneWenner/C2A-MetaScope-AGI-metacognition
