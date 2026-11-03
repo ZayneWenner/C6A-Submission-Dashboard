@@ -1,0 +1,770 @@
+{
+ "meta": {
+  "title": "C6A 提交数据仪表盘",
+  "student": "贾静文",
+  "generated_at": "2026-11-03T07:54:27Z",
+  "challenge_id": "ch-20260717031528-w43gy7",
+  "sources": [
+   {
+    "id": "list-challenges",
+    "kind": "平台 API",
+    "records": 20,
+    "note": "已发布挑战（仅统计可识别 C 代号的）"
+   },
+   {
+    "id": "list-my-submissions",
+    "kind": "平台 API",
+    "records": 10,
+    "note": "个人提交记录"
+   },
+   {
+    "id": "scan_submissions.py",
+    "kind": "本地扫描",
+    "records": 21,
+    "note": "按命名约定识别文件并校验交付物"
+   }
+  ],
+  "metrics": {
+   "challenges_total": 20,
+   "submitted": 10,
+   "not_submitted": 10,
+   "coverage_pct": 50.0,
+   "pending_review": 9,
+   "needs_revision": 1,
+   "scanned_files": 21
+  }
+ },
+ "challenges": [
+  {
+   "challenge_id": "ch-20260717031407-ez6fae",
+   "code": "C3",
+   "title": "C3 群内高质量参与",
+   "status": "published",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "AI日志",
+    "AAR",
+    "反思"
+   ],
+   "required_raw": [
+    "*AI日志*",
+    "*AAR*",
+    "*反思*"
+   ],
+   "submitted": false,
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031336-pxzwy0",
+   "code": "C1",
+   "title": "C1 课程资料获取与翻译",
+   "status": "checked",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "README.md",
+    "AI日志",
+    "AAR",
+    "拿来说明"
+   ],
+   "required_raw": [
+    "README.md",
+    "*AI日志*",
+    "*AAR*",
+    "*拿来说明*"
+   ],
+   "submitted": true,
+   "submission_id": "sub-20261006131826-e4408394",
+   "submitted_at": "2026-10-06T13:18:26.413Z",
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031359-b8wyg0",
+   "code": "C2G",
+   "title": "C2G 参数高尔夫 —— 极限约束下的语言模型训练",
+   "status": "published",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "方案草案",
+    "方案设计",
+    "AI日志",
+    "AAR"
+   ],
+   "required_raw": [
+    "*方案草案*",
+    "*方案设计*",
+    "*AI日志*",
+    "*AAR*"
+   ],
+   "submitted": false,
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031424-4cdgor",
+   "code": "C4",
+   "title": "C4 技能分享与传播",
+   "status": "checked",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "skill说明",
+    ".skill",
+    "教学说明",
+    "demo",
+    "AI日志"
+   ],
+   "required_raw": [
+    "*skill说明*",
+    "*.skill",
+    "*教学说明*",
+    "*demo*",
+    "*AI日志*"
+   ],
+   "submitted": true,
+   "submission_id": "sub-20261103071444-b40b553e",
+   "submitted_at": "2026-11-03T07:14:44.962Z",
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031503-ihozqu",
+   "code": "C5",
+   "title": "C5 GitHub Repository",
+   "status": "needs_revision",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "README.md",
+    "repo链接",
+    "AI日志",
+    "拿来说明"
+   ],
+   "required_raw": [
+    "README.md",
+    "*repo链接*",
+    "*AI日志*",
+    "*拿来说明*"
+   ],
+   "submitted": true,
+   "submission_id": "sub-20261103074505-d7cf4e15",
+   "submitted_at": "2026-11-03T07:45:05.524Z",
+   "local_check": {
+    "status": "complete",
+    "ratio": 1.0,
+    "present": [
+     "README.md",
+     "repo链接",
+     "AI日志",
+     "拿来说明"
+    ],
+    "missing": [],
+    "file_count": 4
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031343-8ot0ji",
+   "code": "C2",
+   "title": "C2 AI for Math 论文",
+   "status": "checked",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "paper.tex",
+    "references.bib",
+    "AI日志",
+    "AAR"
+   ],
+   "required_raw": [
+    "paper.tex",
+    "references.bib",
+    "*AI日志*",
+    "*AAR*"
+   ],
+   "submitted": true,
+   "submission_id": "sub-20261007023414-2c9b89f9",
+   "submitted_at": "2026-10-07T02:34:14.735Z",
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031447-k82c4m",
+   "code": "C4C",
+   "title": "C4C 作业自动求解与排版",
+   "status": "checked",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "方案设计",
+    "homework-solver",
+    "output",
+    "AI日志"
+   ],
+   "required_raw": [
+    "*方案设计*",
+    "*homework-solver*",
+    "*output*",
+    "*AI日志*"
+   ],
+   "submitted": true,
+   "submission_id": "sub-20261008142603-a4bf6384",
+   "submitted_at": "2026-10-08T14:26:03.472Z",
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031528-w43gy7",
+   "code": "C6A",
+   "title": "C6A 提交数据仪表盘",
+   "status": "published",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "仪表盘",
+    "demo",
+    "数据",
+    "AI日志"
+   ],
+   "required_raw": [
+    "*仪表盘*",
+    "*demo*",
+    "*数据*",
+    "*AI日志*"
+   ],
+   "submitted": false,
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031536-sfz852",
+   "code": "C7",
+   "title": "C7 内容传播",
+   "status": "published",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "文章标题",
+    "数据截图",
+    "AI日志"
+   ],
+   "required_raw": [
+    "*文章标题*",
+    "*数据截图*",
+    "*AI日志*"
+   ],
+   "submitted": false,
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031601-4cwlrx",
+   "code": "C10",
+   "title": "C10 Build Your Own Agent（构建你的长期智能体 / 第二大脑）",
+   "status": "published",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "AGENT.md",
+    "architecture",
+    "AAR",
+    "AI日志"
+   ],
+   "required_raw": [
+    "AGENT.md",
+    "*architecture*",
+    "*AAR*",
+    "*AI日志*"
+   ],
+   "submitted": false,
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031519-qqqx60",
+   "code": "C6",
+   "title": "C6 Web Application",
+   "status": "published",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "app链接",
+    "demo",
+    "repo链接",
+    "AI日志"
+   ],
+   "required_raw": [
+    "*app链接*",
+    "*demo*",
+    "*repo链接*",
+    "*AI日志*"
+   ],
+   "submitted": false,
+   "local_check": {
+    "status": "complete",
+    "ratio": 1.0,
+    "present": [
+     "app链接",
+     "demo",
+     "repo链接",
+     "AI日志"
+    ],
+    "missing": [],
+    "file_count": 7
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031455-uzqs9k",
+   "code": "C4D",
+   "title": "C4D 本地大模型 Agent 技能",
+   "status": "checked",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "Agent技能",
+    "demo",
+    "AI日志",
+    "AAR"
+   ],
+   "required_raw": [
+    "*Agent技能*",
+    "*demo*",
+    "*AI日志*",
+    "*AAR*"
+   ],
+   "submitted": true,
+   "submission_id": "sub-20261103072349-a887eacc",
+   "submitted_at": "2026-11-03T07:23:49.947Z",
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031415-0vi5d1",
+   "code": "C3C",
+   "title": "C3C 双人协作与技能迁移",
+   "status": "published",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "协作记录",
+    "联合成果",
+    "AI日志",
+    "AAR"
+   ],
+   "required_raw": [
+    "*协作记录*",
+    "*联合成果*",
+    "*AI日志*",
+    "*AAR*"
+   ],
+   "submitted": false,
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031440-bp05rs",
+   "code": "C4B",
+   "title": "C4B 公众号文章生成技能",
+   "status": "checked",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "wechat-publisher",
+    "文章链接",
+    "AI日志"
+   ],
+   "required_raw": [
+    "*wechat-publisher*",
+    "*文章链接*",
+    "*AI日志*"
+   ],
+   "submitted": true,
+   "submission_id": "sub-20261008110550-fdeb0d27",
+   "submitted_at": "2026-10-08T11:05:50.542Z",
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031511-x5c6t1",
+   "code": "C5A",
+   "title": "C5A GitHub 入门与仓库理解",
+   "status": "checked",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "仓库分析",
+    "README.md",
+    "AI日志"
+   ],
+   "required_raw": [
+    "*仓库分析*",
+    "README.md",
+    "*AI日志*"
+   ],
+   "submitted": true,
+   "submission_id": "sub-20261103073305-aa8bf1ab",
+   "submitted_at": "2026-11-03T07:33:05.379Z",
+   "local_check": {
+    "status": "complete",
+    "ratio": 1.0,
+    "present": [
+     "仓库分析",
+     "README.md",
+     "AI日志"
+    ],
+    "missing": [],
+    "file_count": 10
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031352-tlg70p",
+   "code": "C2A",
+   "title": "C2A / C9：衡量 AGI 的认知能力",
+   "status": "checked",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "proposal",
+    "benchmark",
+    "AI日志",
+    "AAR"
+   ],
+   "required_raw": [
+    "*proposal*",
+    "*benchmark*",
+    "*AI日志*",
+    "*AAR*"
+   ],
+   "submitted": true,
+   "submission_id": "sub-20261006173800-d7c4296d",
+   "submitted_at": "2026-10-06T17:38:00.549Z",
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031553-t2892g",
+   "code": "C9",
+   "title": "C9 Self-Initiated Project（自驱项目）",
+   "status": "published",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "proposal",
+    "AAR_W",
+    "AI日志"
+   ],
+   "required_raw": [
+    "*proposal*",
+    "*AAR_W*",
+    "*AI日志*"
+   ],
+   "submitted": false,
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031544-7vw0rn",
+   "code": "C8",
+   "title": "C8 Real-World Project Execution（真实项目落地）",
+   "status": "published",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "proposal",
+    "AAR_W",
+    "AI日志",
+    "拿来说明"
+   ],
+   "required_raw": [
+    "*proposal*",
+    "*AAR_W*",
+    "*AI日志*",
+    "*拿来说明*"
+   ],
+   "submitted": false,
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031432-5jvqje",
+   "code": "C4A",
+   "title": "C4A 技能提交自动评审",
+   "status": "checked",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "方案设计",
+    "skill-evaluator",
+    "评审报告",
+    "AI日志"
+   ],
+   "required_raw": [
+    "*方案设计*",
+    "*skill-evaluator*",
+    "*评审报告*",
+    "*AI日志*"
+   ],
+   "submitted": true,
+   "submission_id": "sub-20261008024143-1873e4c3",
+   "submitted_at": "2026-10-08T02:41:43.088Z",
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  },
+  {
+   "challenge_id": "ch-20260717031609-rnur5a",
+   "code": "C10H",
+   "title": "C10H 安装并驾驭 Hermes Agent",
+   "status": "published",
+   "deadline": "2026-12-31T23:59",
+   "required": [
+    "安装记录",
+    "配置说明",
+    "demo",
+    "AI日志"
+   ],
+   "required_raw": [
+    "*安装记录*",
+    "*配置说明*",
+    "*demo*",
+    "*AI日志*"
+   ],
+   "submitted": false,
+   "local_check": {
+    "status": "not_scanned",
+    "ratio": null,
+    "present": [],
+    "missing": [],
+    "file_count": 0
+   }
+  }
+ ],
+ "submissions": [
+  {
+   "submission_id": "sub-20261007023414-2c9b89f9",
+   "challenge_id": "ch-20260717031343-8ot0ji",
+   "code": "C2",
+   "project_title": "面向可靠 AI 数学的自然语言到可验证推理：语义归约框架",
+   "challenge_title": "C2 AI for Math 论文",
+   "status": "checked",
+   "task_state": "pending_teacher_review",
+   "submitted_at": "2026-10-07T02:34:14.735Z",
+   "repo": "https://github.com/ZayneWenner/ai-for-math-paper"
+  },
+  {
+   "submission_id": "sub-20261006131826-e4408394",
+   "challenge_id": "ch-20260717031336-pxzwy0",
+   "code": "C1",
+   "project_title": "C1 课程资料获取与翻译（Stanford Vibe Coding 课程中文译介包）",
+   "challenge_title": "C1 课程资料获取与翻译",
+   "status": "checked",
+   "task_state": "pending_teacher_review",
+   "submitted_at": "2026-10-06T13:18:26.413Z",
+   "repo": "https://github.com/ZayneWenner/stanford-vibe-coding-zh"
+  },
+  {
+   "submission_id": "sub-20261103072349-a887eacc",
+   "challenge_id": "ch-20260717031455-uzqs9k",
+   "code": "C4D",
+   "project_title": "C4D 本地大模型 Agent 技能",
+   "challenge_title": "C4D 本地大模型 Agent 技能",
+   "status": "checked",
+   "task_state": "pending_teacher_review",
+   "submitted_at": "2026-11-03T07:23:49.947Z",
+   "repo": "https://github.com/ZayneWenner/C4D-Local-LLM-Agent-Skill"
+  },
+  {
+   "submission_id": "sub-20261103073305-aa8bf1ab",
+   "challenge_id": "ch-20260717031511-x5c6t1",
+   "code": "C5A",
+   "project_title": "C5A GitHub 入门与仓库理解：anthropics/skills 仓库分析",
+   "challenge_title": "C5A GitHub 入门与仓库理解",
+   "status": "checked",
+   "task_state": "pending_teacher_review",
+   "submitted_at": "2026-11-03T07:33:05.379Z",
+   "repo": "https://github.com/ZayneWenner/C5A-GitHub-Repo-Analysis"
+  },
+  {
+   "submission_id": "sub-20261008024143-1873e4c3",
+   "challenge_id": "ch-20260717031432-5jvqje",
+   "code": "C4A",
+   "project_title": "C4A 技能提交自动评审：Skill 评审器",
+   "challenge_title": "C4A 技能提交自动评审",
+   "status": "checked",
+   "task_state": "pending_teacher_review",
+   "submitted_at": "2026-10-08T02:41:43.088Z",
+   "repo": "https://github.com/ZayneWenner/C4A-Skill-Evaluator"
+  },
+  {
+   "submission_id": "sub-20261008110550-fdeb0d27",
+   "challenge_id": "ch-20260717031440-bp05rs",
+   "code": "C4B",
+   "project_title": "挑战_C4B 公众号文章生成技能",
+   "challenge_title": "C4B 公众号文章生成技能",
+   "status": "checked",
+   "task_state": "pending_teacher_review",
+   "submitted_at": "2026-10-08T11:05:50.542Z",
+   "repo": "https://github.com/ZayneWenner/C4B-WeChat-Article-Skill"
+  },
+  {
+   "submission_id": "sub-20261008142603-a4bf6384",
+   "challenge_id": "ch-20260717031447-k82c4m",
+   "code": "C4C",
+   "project_title": "C4C 作业自动求解与排版",
+   "challenge_title": "C4C 作业自动求解与排版",
+   "status": "checked",
+   "task_state": "pending_teacher_review",
+   "submitted_at": "2026-10-08T14:26:03.472Z",
+   "repo": "https://github.com/ZayneWenner/C4C-Homework-Solver-Pipeline"
+  },
+  {
+   "submission_id": "sub-20261103071444-b40b553e",
+   "challenge_id": "ch-20260717031424-4cdgor",
+   "code": "C4",
+   "project_title": "口播脚本生成器（koubo-script-generator）· C4 技能分享与传播",
+   "challenge_title": "C4 技能分享与传播",
+   "status": "checked",
+   "task_state": "pending_teacher_review",
+   "submitted_at": "2026-11-03T07:14:44.962Z",
+   "repo": "https://github.com/ZayneWenner/C4-Koubo-Script-Generator"
+  },
+  {
+   "submission_id": "sub-20261103074505-d7cf4e15",
+   "challenge_id": "ch-20260717031503-ihozqu",
+   "code": "C5",
+   "project_title": "C5 GitHub Repository：localmap-agent 本地地图 Agent",
+   "challenge_title": "C5 GitHub Repository",
+   "status": "needs_revision",
+   "task_state": null,
+   "submitted_at": "2026-11-03T07:45:05.524Z",
+   "repo": "https://github.com/ZayneWenner/localmap-agent"
+  },
+  {
+   "submission_id": "sub-20261006173800-d7c4296d",
+   "challenge_id": "ch-20260717031352-tlg70p",
+   "code": "C2A",
+   "project_title": "MetaScope：已知-未知边界元认知校准基准",
+   "challenge_title": "C2A / C9：衡量 AGI 的认知能力",
+   "status": "checked",
+   "task_state": "pending_teacher_review",
+   "submitted_at": "2026-10-06T17:38:00.549Z",
+   "repo": "https://github.com/ZayneWenner/C2A-MetaScope-AGI-metacognition"
+  }
+ ],
+ "timeline": [
+  {
+   "date": "2026-10-06",
+   "count": 2
+  },
+  {
+   "date": "2026-10-07",
+   "count": 1
+  },
+  {
+   "date": "2026-10-08",
+   "count": 3
+  },
+  {
+   "date": "2026-11-03",
+   "count": 4
+  }
+ ],
+ "insights": [
+  {
+   "level": "info",
+   "title": "提交覆盖率 10/20（50%）",
+   "body": "平台已发布的 C 系列挑战共 20 个，个人已提交 10 个。未提交的挑战集中在 C3/C3C/C6/C7/C8/C9/C10/C10H/C2G 等需要新增交付物的题目。",
+   "evidence": [
+    "list-challenges",
+    "list-my-submissions"
+   ]
+  },
+  {
+   "level": "error",
+   "title": "1 个提交处于 needs_revision，需要返工",
+   "body": "涉及：C5。这类状态不会自动转为通过，必须按评审意见补交新版本。",
+   "evidence": [
+    "sub-20261103074505-d7cf4e15"
+   ]
+  },
+  {
+   "level": "info",
+   "title": "提交峰值集中在 2026-11-03（当天 4 次）",
+   "body": "共 4 个提交日、10 条提交记录。峰值日说明该天为集中补交时段。",
+   "evidence": [
+    "submitted_at 按日聚合"
+   ]
+  },
+  {
+   "level": "warning",
+   "title": "待评审队列 9 条",
+   "body": "除 needs_revision 外，其余提交均已 checked 并进入 pending_teacher_review，等教师终审即可。",
+   "evidence": [
+    "status=checked"
+   ]
+  }
+ ]
+}
