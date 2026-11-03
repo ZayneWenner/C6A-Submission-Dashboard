@@ -1,0 +1,21 @@
+﻿代号,已提交,平台状态,本地校验,命中率,命中项,缺失项,文件数
+C3,否,published,not_scanned,,,,0
+C1,是,checked,not_scanned,,,,0
+C2G,否,published,not_scanned,,,,0
+C4,是,checked,not_scanned,,,,0
+C5,是,needs_revision,complete,1.0,README.md / repo链接 / AI日志 / 拿来说明,,4
+C2,是,checked,not_scanned,,,,0
+C4C,是,checked,not_scanned,,,,0
+C6A,否,published,not_scanned,,,,0
+C7,否,published,not_scanned,,,,0
+C10,否,published,not_scanned,,,,0
+C6,否,published,complete,1.0,app链接 / demo / repo链接 / AI日志,,7
+C4D,是,checked,not_scanned,,,,0
+C3C,否,published,not_scanned,,,,0
+C4B,是,checked,not_scanned,,,,0
+C5A,是,checked,complete,1.0,仓库分析 / README.md / AI日志,,10
+C2A,是,checked,not_scanned,,,,0
+C9,否,published,not_scanned,,,,0
+C8,否,published,not_scanned,,,,0
+C4A,是,checked,not_scanned,,,,0
+C10H,否,published,not_scanned,,,,0
