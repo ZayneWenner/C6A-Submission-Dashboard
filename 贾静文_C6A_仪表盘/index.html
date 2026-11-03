@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>C6A 提交数据仪表盘 · 贾静文</title>
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>C6A 提交数据仪表盘</h1>
+      <div class="meta">
+        学生：<strong>贾静文</strong> ·
+        数据生成时间：<span id="genAt">—</span> ·
+        数据来源：平台 API + 本地扫描
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <button class="btn" id="btnExport">导出当前筛选 CSV</button>
+    <button class="btn primary" id="btnRefreshNote">数据口径说明</button>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button data-view="overview" class="on">总览</button>
+    <button data-view="challenges">挑战清单</button>
+    <button data-view="coverage">交付物校验</button>
+    <button data-view="timeline">提交时间线</button>
+    <button data-view="dict">数据字典</button>
+  </nav>
+
+  <!-- 总览 -->
+  <section id="view-overview">
+    <div class="kpis" id="kpis"></div>
+    <div class="grid2">
+      <div class="card">
+        <h2>提交时间线（按日）</h2>
+        <div class="hint">每条柱为该日提交次数，来源 <code>submitted_at</code>，时区 UTC。</div>
+        <div class="bars" id="bars"></div>
+      </div>
+      <div class="card">
+        <h2>自动洞察</h2>
+        <div class="hint">脚本按固定规则生成，可逐条回溯到来源字段。</div>
+        <div class="insights" id="insights"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 挑战清单 -->
+  <section id="view-challenges" class="hide">
+    <div class="card">
+      <h2>挑战清单与提交状态</h2>
+      <div class="hint">点击任意行查看详情。筛选只影响当前视图与导出。</div>
+      <div class="filters">
+        <input type="search" id="qText" placeholder="搜索代号 / 标题…" />
+        <select id="fSubmit">
+          <option value="">全部提交状态</option>
+          <option value="yes">已提交</option>
+          <option value="no">未提交</option>
+        </select>
+        <select id="fStatus">
+          <option value="">全部平台状态</option>
+          <option value="checked">已审核</option>
+          <option value="needs_revision">需返工</option>
+          <option value="none">无状态</option>
+        </select>
+        <span class="count" id="cntChal"></span>
+      </div>
+      <div style="overflow:auto; max-height:560px">
+        <table>
+          <thead><tr>
+            <th>代号</th><th>挑战</th><th>截止</th><th>提交</th>
+            <th>平台状态</th><th>本地交付物</th><th>提交时间</th>
+          </tr></thead>
+          <tbody id="tbChal"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 交付物校验 -->
+  <section id="view-coverage" class="hide">
+    <div class="card">
+      <h2>交付物命中校验</h2>
+      <div class="hint">
+        按平台 <code>required_deliverables</code> 逐项比对本地文件命名。
+        「未扫描」表示该挑战在本机没有对应目录，不代表缺失。
+      </div>
+      <div style="overflow:auto; max-height:560px">
+        <table>
+          <thead><tr>
+            <th>代号</th><th>要求项</th><th>命中</th><th>缺失</th><th>命中率</th><th>文件数</th>
+          </tr></thead>
+          <tbody id="tbCov"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 时间线 -->
+  <section id="view-timeline" class="hide">
+    <div class="card">
+      <h2>提交记录明细</h2>
+      <div class="hint">按提交时间倒序。task_state 为空表示平台未返回评估任务状态。</div>
+      <div style="overflow:auto; max-height:560px">
+        <table>
+          <thead><tr>
+            <th>提交时间</th><th>代号</th><th>项目标题</th><th>平台状态</th><th>任务状态</th><th>仓库</th>
+          </tr></thead>
+          <tbody id="tbSubs"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 数据字典 -->
+  <section id="view-dict" class="hide">
+    <div class="card">
+      <h2>数据字典与口径</h2>
+      <dl class="dict">
+        <dt>数据来源与权威性</dt>
+        <dd>
+          ① 平台 <code>list-challenges</code>：挑战定义与 <code>required_deliverables</code>，权威；
+          ② 平台 <code>list-my-submissions</code>：提交记录与状态，权威；
+          ③ 本地扫描脚本：仅用于校验「本机是否留有符合命名的交付物文件」，属于辅助证据，不能推翻平台状态。
+          三者冲突时以平台 API 为准，并在缺失项表中标注。
+        </dd>
+        <dt>challenge.code</dt>
+        <dd>从挑战标题用正则 <code>C\d{1,2}[A-Z]?</code> 提取的代号，仅用于展示与分组，不参与业务判断。</dd>
+        <dt>submission.status</dt>
+        <dd>平台提交状态。<code>checked</code> = 已审核并进入待教师评审；<code>needs_revision</code> = 需按意见返工，不会自动转通过。</dd>
+        <dt>submission.task_state</dt>
+        <dd>平台评估任务状态，可能为空。为空不等于失败，只表示平台未回填。</dd>
+        <dt>local_check.status</dt>
+        <dd>complete = 全部要求项命中；partial = 部分命中；empty = 有文件但零命中；not_scanned = 本机无该挑战目录。</dd>
+        <dt>覆盖率 coverage_pct</dt>
+        <dd>公式：已提交挑战数 ÷ 已发布且可识别代号的挑战数 × 100%。分母排除测试类挑战（如 T0）。<br>本次实测：平台 <code>list-challenges</code> 返回 <b>21</b> 条，其中 1 条为 <code>ch-20260904104535-14aac163</code>（T0 发布流程测试，标题明示“请忽略”），故分母为 <b>21 − 1 = 20</b>；已提交 <b>10</b>，覆盖率 <b>50.0%</b>。</dd>
+        <dt>已知局限</dt>
+        <dd>
+          1) 平台仅提供本人提交记录，无法统计同班其他学生，故本仪表盘是「个人视角」，不是班级口径；
+          2) 本地扫描依赖命名约定，改名会导致误判为缺失；
+          3) 时区为 UTC，与北京时间相差 8 小时，跨日统计需注意。
+        </dd>
+        <dt>重新生成</dt>
+        <dd><code>python scan_submissions.py …</code> → <code>python build_dataset.py …</code> → 刷新浏览器。命令见 <code>贾静文_C6A_data/README.md</code>。</dd>
+      </dl>
+    </div>
+  </section>
+
+  <footer class="foot">
+    C6A 提交数据仪表盘 · 纯本地运行，无外部请求 · 数据快照 <span id="genAt2">—</span>
+  </footer>
+</div>
+
+<div class="mask" id="mask"></div>
+<aside class="drawer" id="drawer">
+  <button class="close" id="btnClose">×</button>
+  <div id="drawerBody"></div>
+</aside>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
