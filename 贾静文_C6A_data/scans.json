@@ -1,0 +1,107 @@
+{
+ "roots": [
+  "D:\\.cogseed\\userWorkSpace\\提交c4作业\\c5-package",
+  "D:\\.cogseed\\userWorkSpace\\提交c4作业\\c5a-package",
+  "C:\\Users\\86178\\Desktop\\贾静文_C5A_GitHub入门与仓库理解",
+  "C:\\Users\\86178\\Desktop\\贾静文_C6_WebApplication_提交包"
+ ],
+ "scanned_files": 21,
+ "assigned_files": 21,
+ "coverage": [
+  {
+   "student": "贾静文",
+   "challenge_code": "C5",
+   "challenge_title": "C5 GitHub Repository",
+   "challenge_id": "ch-20260717031503-ihozqu",
+   "file_count": 4,
+   "present": [
+    "README.md",
+    "repo链接",
+    "AI日志",
+    "拿来说明"
+   ],
+   "present_patterns": [
+    "README.md",
+    "*repo链接*",
+    "*AI日志*",
+    "*拿来说明*"
+   ],
+   "missing": [],
+   "missing_patterns": [],
+   "ratio": 1.0,
+   "status": "complete",
+   "files": [
+    "README.md",
+    "贾静文_C5_AI日志.md",
+    "贾静文_C5_repo链接.md",
+    "贾静文_C5_拿来说明.md"
+   ]
+  },
+  {
+   "student": "贾静文",
+   "challenge_code": "C5A",
+   "challenge_title": "C5A GitHub 入门与仓库理解",
+   "challenge_id": "ch-20260717031511-x5c6t1",
+   "file_count": 10,
+   "present": [
+    "仓库分析",
+    "README.md",
+    "AI日志"
+   ],
+   "present_patterns": [
+    "*仓库分析*",
+    "README.md",
+    "*AI日志*"
+   ],
+   "missing": [],
+   "missing_patterns": [],
+   "ratio": 1.0,
+   "status": "complete",
+   "files": [
+    "AI日志.md",
+    "README.md",
+    "仓库分析.md",
+    "提交清单与说明.md",
+    "贾静文_C5A_AAR.md",
+    "贾静文_C5A_AI日志.md",
+    "贾静文_C5A_GitHub账号.txt",
+    "贾静文_C5A_个人仓库README.md",
+    "贾静文_C5A_仓库分析.md",
+    "贾静文_C5A_screenshots/截图获取指南.md"
+   ]
+  },
+  {
+   "student": "贾静文",
+   "challenge_code": "C6",
+   "challenge_title": "C6 Web Application",
+   "challenge_id": "ch-20260717031519-qqqx60",
+   "file_count": 7,
+   "present": [
+    "app链接",
+    "demo",
+    "repo链接",
+    "AI日志"
+   ],
+   "present_patterns": [
+    "*app链接*",
+    "*demo*",
+    "*repo链接*",
+    "*AI日志*"
+   ],
+   "missing": [],
+   "missing_patterns": [],
+   "ratio": 1.0,
+   "status": "complete",
+   "files": [
+    "贾静文_C6_AI日志.md",
+    "贾静文_C6_app链接.md",
+    "贾静文_C6_demo说明.md",
+    "贾静文_C6_repo链接.md",
+    "贾静文_C6_拿来说明.md",
+    "app/index.html",
+    "app/README.md"
+   ]
+  }
+ ],
+ "unassigned": []
+}
