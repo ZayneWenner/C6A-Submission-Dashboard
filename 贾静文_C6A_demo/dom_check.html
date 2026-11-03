@@ -1,0 +1,178 @@
+﻿msedge.exe : [18600:27880:1103/155544.756:ERROR:components\edge_ess\vbs_encoder.cc:100] LoadEnclaveImageW failed, error
+ code 577
+所在位置 行:1 字符: 270
++ ... heck.html"; & $edge --headless=new --disable-gpu --virtual-time-budge ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([18600:27880:11... error code 577:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[18600:42924:1103/155545.824:ERROR:chrome\browser\importer\edge_china_browsers\edge_qqbrowser_importer_utils_win.cc:165
+] QQBrowser user data path not found.
+[18600:27880:1103/155546.029:ERROR:chrome\browser\task_manager\providers\fallback_task_provider.cc:126] Every renderer 
+should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug.
+ If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/40528867.
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C6A 提交数据仪表盘 · 贾静文</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>C6A 提交数据仪表盘</h1>
+      <div class="meta">
+        学生：<strong>贾静文</strong> ·
+        数据生成时间：<span id="genAt">2026-11-03T07:54:27Z</span> ·
+        数据来源：平台 API + 本地扫描
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <button class="btn" id="btnExport">导出当前筛选 CSV</button>
+    <button class="btn primary" id="btnRefreshNote">数据口径说明</button>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button data-view="overview" class="on">总览</button>
+    <button data-view="challenges">挑战清单</button>
+    <button data-view="coverage">交付物校验</button>
+    <button data-view="timeline">提交时间线</button>
+    <button data-view="dict">数据字典</button>
+  </nav>
+
+  <!-- 总览 -->
+  <section id="view-overview">
+    <div class="kpis" id="kpis"><div class="kpi info"><div class="label">挑战总数</div><div class="value">20</div><div class="sub">已发布可识别代号</div></div><div class="kpi ok"><div class="label">已提交</div><div class="value">10</div><div class="sub">占比 50%</div></div><div class="kpi warn"><div class="label">未提交</div><div class="value">10</div><div class="sub">需新增交付物</div></div><div class="kpi info"><div class="label">待评审</div><div class="value">9</div><div class="sub">已 checked，等教师终审</div></div><div class="kpi err"><div class="label">需返工</div><div class="value">1</div><div class="sub">needs_revision，不会自动通过</div></div><div class="kpi info"><div class="label">扫描文件</div><div class="value">21</div><div class="sub">本地可识别交付物文件</div></div></div>
+    <div class="grid2">
+      <div class="card">
+        <h2>提交时间线（按日）</h2>
+        <div class="hint">每条柱为该日提交次数，来源 <code>submitted_at</code>，时区 UTC。</div>
+        <div class="bars" id="bars"><div class="col" title="2026-10-06：2 次"><div class="c">2</div><div class="bar" style="height:65px"></div><div class="d">10-06</div></div><div class="col" title="2026-10-07：1 次"><div class="c">1</div><div class="bar" style="height:33px"></div><div class="d">10-07</div></div><div class="col" title="2026-10-08：3 次"><div class="c">3</div><div class="bar" style="height:98px"></div><div class="d">10-08</div></div><div class="col" title="2026-11-03：4 次"><div class="c">4</div><div class="bar" style="height:130px"></div><div class="d">11-03</div></div></div>
+      </div>
+      <div class="card">
+        <h2>自动洞察</h2>
+        <div class="hint">脚本按固定规则生成，可逐条回溯到来源字段。</div>
+        <div class="insights" id="insights"><div class="ins info"><div class="t">提交覆盖率 10/20（50%）</div><div class="b">平台已发布的 C 系列挑战共 20 个，个人已提交 10 个。未提交的挑战集中在 C3/C3C/C6/C7/C8/C9/C10/C10H/C2G 等需要新增交付物的题目。</div></div><div class="ins error"><div class="t">1 个提交处于 needs_revision，需要返工</div><div class="b">涉及：C5。这类状态不会自动转为通过，必须按评审意见补交新版本。</div></div><div class="ins info"><div class="t">提交峰值集中在 2026-11-03（当天 4 次）</div><div class="b">共 4 个提交日、10 条提交记录。峰值日说明该天为集中补交时段。</div></div><div class="ins warning"><div class="t">待评审队列 9 条</div><div class="b">除 needs_revision 外，其余提交均已 checked 并进入 pending_teacher_review，等教师终审即可。</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 挑战清单 -->
+  <section id="view-challenges" class="hide">
+    <div class="card">
+      <h2>挑战清单与提交状态</h2>
+      <div class="hint">点击任意行查看详情。筛选只影响当前视图与导出。</div>
+      <div class="filters">
+        <input type="search" id="qText" placeholder="搜索代号 / 标题…">
+        <select id="fSubmit">
+          <option value="">全部提交状态</option>
+          <option value="yes">已提交</option>
+          <option value="no">未提交</option>
+        </select>
+        <select id="fStatus">
+          <option value="">全部平台状态</option>
+          <option value="checked">已审核</option>
+          <option value="needs_revision">需返工</option>
+          <option value="none">无状态</option>
+        </select>
+        <span class="count" id="cntChal">共 20 / 20 条</span>
+      </div>
+      <div style="overflow:auto; max-height:560px">
+        <table>
+          <thead><tr>
+            <th>代号</th><th>挑战</th><th>截止</th><th>提交</th>
+            <th>平台状态</th><th>本地交付物</th><th>提交时间</th>
+          </tr></thead>
+          <tbody id="tbChal"><tr data-code="C3"><td class="code">C3</td><td>C3 群内高质量参与</td><td>2026-12-31</td><td><span class="tag mute">未提交</span></td><td><span class="tag warn">published</span></td><td><span class="tag mute">未扫描</span></td><td>—</td></tr><tr data-code="C1"><td class="code">C1</td><td>C1 课程资料获取与翻译</td><td>2026-12-31</td><td><span class="tag info">已提交</span></td><td><span class="tag ok">已审核</span></td><td><span class="tag mute">未扫描</span></td><td>2026-10-06 13:18:26 UTC</td></tr><tr data-code="C2G"><td class="code">C2G</td><td>C2G 参数高尔夫 —— 极限约束下的语言模型训练</td><td>2026-12-31</td><td><span class="tag mute">未提交</span></td><td><span class="tag warn">published</span></td><td><span class="tag mute">未扫描</span></td><td>—</td></tr><tr data-code="C4"><td class="code">C4</td><td>C4 技能分享与传播</td><td>2026-12-31</td><td><span class="tag info">已提交</span></td><td><span class="tag ok">已审核</span></td><td><span class="tag mute">未扫描</span></td><td>2026-11-03 07:14:44 UTC</td></tr><tr data-code="C5"><td class="code">C5</td><td>C5 GitHub Repository</td><td>2026-12-31</td><td><span class="tag info">已提交</span></td><td><span class="tag err">需返工</span></td><td><span class="tag ok">齐全 100%</span></td><td>2026-11-03 07:45:05 UTC</td></tr><tr data-code="C2"><td class="code">C2</td><td>C2 AI for Math 论文</td><td>2026-12-31</td><td><span class="tag info">已提交</span></td><td><span class="tag ok">已审核</span></td><td><span class="tag mute">未扫描</span></td><td>2026-10-07 02:34:14 UTC</td></tr><tr data-code="C4C"><td class="code">C4C</td><td>C4C 作业自动求解与排版</td><td>2026-12-31</td><td><span class="tag info">已提交</span></td><td><span class="tag ok">已审核</span></td><td><span class="tag mute">未扫描</span></td><td>2026-10-08 14:26:03 UTC</td></tr><tr data-code="C6A"><td class="code">C6A</td><td>C6A 提交数据仪表盘</td><td>2026-12-31</td><td><span class="tag mute">未提交</span></td><td><span class="tag warn">published</span></td><td><span class="tag mute">未扫描</span></td><td>—</td></tr><tr data-code="C7"><td class="code">C7</td><td>C7 内容传播</td><td>2026-12-31</td><td><span class="tag mute">未提交</span></td><td><span class="tag warn">published</span></td><td><span class="tag mute">未扫描</span></td><td>—</td></tr><tr data-code="C10"><td class="code">C10</td><td>C10 Build Your Own Agent（构建你的长期智能体 / 第二大脑）</td><td>2026-12-31</td><td><span class="tag mute">未提交</span></td><td><span class="tag warn">published</span></td><td><span class="tag mute">未扫描</span></td><td>—</td></tr><tr data-code="C6"><td class="code">C6</td><td>C6 Web Application</td><td>2026-12-31</td><td><span class="tag mute">未提交</span></td><td><span class="tag warn">published</span></td><td><span class="tag ok">齐全 100%</span></td><td>—</td></tr><tr data-code="C4D"><td class="code">C4D</td><td>C4D 本地大模型 Agent 技能</td><td>2026-12-31</td><td><span class="tag info">已提交</span></td><td><span class="tag ok">已审核</span></td><td><span class="tag mute">未扫描</span></td><td>2026-11-03 07:23:49 UTC</td></tr><tr data-code="C3C"><td class="code">C3C</td><td>C3C 双人协作与技能迁移</td><td>2026-12-31</td><td><span class="tag mute">未提交</span></td><td><span class="tag warn">published</span></td><td><span class="tag mute">未扫描</span></td><td>—</td></tr><tr data-code="C4B"><td class="code">C4B</td><td>C4B 公众号文章生成技能</td><td>2026-12-31</td><td><span class="tag info">已提交</span></td><td><span class="tag ok">已审核</span></td><td><span class="tag mute">未扫描</span></td><td>2026-10-08 11:05:50 UTC</td></tr><tr data-code="C5A"><td class="code">C5A</td><td>C5A GitHub 入门与仓库理解</td><td>2026-12-31</td><td><span class="tag info">已提交</span></td><td><span class="tag ok">已审核</span></td><td><span class="tag ok">齐全 100%</span></td><td>2026-11-03 07:33:05 UTC</td></tr><tr data-code="C2A"><td class="code">C2A</td><td>C2A / C9：衡量 AGI 的认知能力</td><td>2026-12-31</td><td><span class="tag info">已提交</span></td><td><span class="tag ok">已审核</span></td><td><span class="tag mute">未扫描</span></td><td>2026-10-06 17:38:00 UTC</td></tr><tr data-code="C9"><td class="code">C9</td><td>C9 Self-Initiated Project（自驱项目）</td><td>2026-12-31</td><td><span class="tag mute">未提交</span></td><td><span class="tag warn">published</span></td><td><span class="tag mute">未扫描</span></td><td>—</td></tr><tr data-code="C8"><td class="code">C8</td><td>C8 Real-World Project Execution（真实项目落地）</td><td>2026-12-31</td><td><span class="tag mute">未提交</span></td><td><span class="tag warn">published</span></td><td><span class="tag mute">未扫描</span></td><td>—</td></tr><tr data-code="C4A"><td class="code">C4A</td><td>C4A 技能提交自动评审</td><td>2026-12-31</td><td><span class="tag info">已提交</span></td><td><span class="tag ok">已审核</span></td><td><span class="tag mute">未扫描</span></td><td>2026-10-08 02:41:43 UTC</td></tr><tr data-code="C10H"><td class="code">C10H</td><td>C10H 安装并驾驭 Hermes Agent</td><td>2026-12-31</td><td><span class="tag mute">未提交</span></td><td><span class="tag warn">published</span></td><td><span class="tag mute">未扫描</span></td><td>—</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 交付物校验 -->
+  <section id="view-coverage" class="hide">
+    <div class="card">
+      <h2>交付物命中校验</h2>
+      <div class="hint">
+        按平台 <code>required_deliverables</code> 逐项比对本地文件命名。
+        「未扫描」表示该挑战在本机没有对应目录，不代表缺失。
+      </div>
+      <div style="overflow:auto; max-height:560px">
+        <table>
+          <thead><tr>
+            <th>代号</th><th>要求项</th><th>命中</th><th>缺失</th><th>命中率</th><th>文件数</th>
+          </tr></thead>
+          <tbody id="tbCov"><tr><td class="code">C1</td><td>README.md / AI日志 / AAR / 拿来说明</td><td><span class="tag mute">—</span></td><td><span class="tag ok">无缺失</span></td><td><span class="tag mute">未扫描</span></td><td>0</td></tr><tr><td class="code">C4</td><td>skill说明 / .skill / 教学说明 / demo / AI日志</td><td><span class="tag mute">—</span></td><td><span class="tag ok">无缺失</span></td><td><span class="tag mute">未扫描</span></td><td>0</td></tr><tr><td class="code">C5</td><td>README.md / repo链接 / AI日志 / 拿来说明</td><td><div class="chiplist"><span class="tag ok">README.md</span><span class="tag ok">repo链接</span><span class="tag ok">AI日志</span><span class="tag ok">拿来说明</span></div></td><td><span class="tag ok">无缺失</span></td><td><span class="tag ok">100%</span></td><td>4</td></tr><tr><td class="code">C2</td><td>paper.tex / references.bib / AI日志 / AAR</td><td><span class="tag mute">—</span></td><td><span class="tag ok">无缺失</span></td><td><span class="tag mute">未扫描</span></td><td>0</td></tr><tr><td class="code">C4C</td><td>方案设计 / homework-solver / output / AI日志</td><td><span class="tag mute">—</span></td><td><span class="tag ok">无缺失</span></td><td><span class="tag mute">未扫描</span></td><td>0</td></tr><tr><td class="code">C6</td><td>app链接 / demo / repo链接 / AI日志</td><td><div class="chiplist"><span class="tag ok">app链接</span><span class="tag ok">demo</span><span class="tag ok">repo链接</span><span class="tag ok">AI日志</span></div></td><td><span class="tag ok">无缺失</span></td><td><span class="tag ok">100%</span></td><td>7</td></tr><tr><td class="code">C4D</td><td>Agent技能 / demo / AI日志 / AAR</td><td><span class="tag mute">—</span></td><td><span class="tag ok">无缺失</span></td><td><span class="tag mute">未扫描</span></td><td>0</td></tr><tr><td class="code">C4B</td><td>wechat-publisher / 文章链接 / AI日志</td><td><span class="tag mute">—</span></td><td><span class="tag ok">无缺失</span></td><td><span class="tag mute">未扫描</span></td><td>0</td></tr><tr><td class="code">C5A</td><td>仓库分析 / README.md / AI日志</td><td><div class="chiplist"><span class="tag ok">仓库分析</span><span class="tag ok">README.md</span><span class="tag ok">AI日志</span></div></td><td><span class="tag ok">无缺失</span></td><td><span class="tag ok">100%</span></td><td>10</td></tr><tr><td class="code">C2A</td><td>proposal / benchmark / AI日志 / AAR</td><td><span class="tag mute">—</span></td><td><span class="tag ok">无缺失</span></td><td><span class="tag mute">未扫描</span></td><td>0</td></tr><tr><td class="code">C4A</td><td>方案设计 / skill-evaluator / 评审报告 / AI日志</td><td><span class="tag mute">—</span></td><td><span class="tag ok">无缺失</span></td><td><span class="tag mute">未扫描</span></td><td>0</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 时间线 -->
+  <section id="view-timeline" class="hide">
+    <div class="card">
+      <h2>提交记录明细</h2>
+      <div class="hint">按提交时间倒序。task_state 为空表示平台未返回评估任务状态。</div>
+      <div style="overflow:auto; max-height:560px">
+        <table>
+          <thead><tr>
+            <th>提交时间</th><th>代号</th><th>项目标题</th><th>平台状态</th><th>任务状态</th><th>仓库</th>
+          </tr></thead>
+          <tbody id="tbSubs"><tr><td>2026-11-03 07:45:05 UTC</td><td class="code">C5</td><td>C5 GitHub Repository：localmap-agent 本地地图 Agent</td><td><span class="tag err">需返工</span></td><td><span class="tag mute">空</span></td><td><a href="https://github.com/ZayneWenner/localmap-agent" target="_blank" rel="noopener" style="color:#7dd3fc">ZayneWenner/localmap-agent</a></td></tr><tr><td>2026-11-03 07:33:05 UTC</td><td class="code">C5A</td><td>C5A GitHub 入门与仓库理解：anthropics/skills 仓库分析</td><td><span class="tag ok">已审核</span></td><td>pending_teacher_review</td><td><a href="https://github.com/ZayneWenner/C5A-GitHub-Repo-Analysis" target="_blank" rel="noopener" style="color:#7dd3fc">ZayneWenner/C5A-GitHub-Repo-Analysis</a></td></tr><tr><td>2026-11-03 07:23:49 UTC</td><td class="code">C4D</td><td>C4D 本地大模型 Agent 技能</td><td><span class="tag ok">已审核</span></td><td>pending_teacher_review</td><td><a href="https://github.com/ZayneWenner/C4D-Local-LLM-Agent-Skill" target="_blank" rel="noopener" style="color:#7dd3fc">ZayneWenner/C4D-Local-LLM-Agent-Skill</a></td></tr><tr><td>2026-11-03 07:14:44 UTC</td><td class="code">C4</td><td>口播脚本生成器（koubo-script-generator）· C4 技能分享与传播</td><td><span class="tag ok">已审核</span></td><td>pending_teacher_review</td><td><a href="https://github.com/ZayneWenner/C4-Koubo-Script-Generator" target="_blank" rel="noopener" style="color:#7dd3fc">ZayneWenner/C4-Koubo-Script-Generator</a></td></tr><tr><td>2026-10-08 14:26:03 UTC</td><td class="code">C4C</td><td>C4C 作业自动求解与排版</td><td><span class="tag ok">已审核</span></td><td>pending_teacher_review</td><td><a href="https://github.com/ZayneWenner/C4C-Homework-Solver-Pipeline" target="_blank" rel="noopener" style="color:#7dd3fc">ZayneWenner/C4C-Homework-Solver-Pipeline</a></td></tr><tr><td>2026-10-08 11:05:50 UTC</td><td class="code">C4B</td><td>挑战_C4B 公众号文章生成技能</td><td><span class="tag ok">已审核</span></td><td>pending_teacher_review</td><td><a href="https://github.com/ZayneWenner/C4B-WeChat-Article-Skill" target="_blank" rel="noopener" style="color:#7dd3fc">ZayneWenner/C4B-WeChat-Article-Skill</a></td></tr><tr><td>2026-10-08 02:41:43 UTC</td><td class="code">C4A</td><td>C4A 技能提交自动评审：Skill 评审器</td><td><span class="tag ok">已审核</span></td><td>pending_teacher_review</td><td><a href="https://github.com/ZayneWenner/C4A-Skill-Evaluator" target="_blank" rel="noopener" style="color:#7dd3fc">ZayneWenner/C4A-Skill-Evaluator</a></td></tr><tr><td>2026-10-07 02:34:14 UTC</td><td class="code">C2</td><td>面向可靠 AI 数学的自然语言到可验证推理：语义归约框架</td><td><span class="tag ok">已审核</span></td><td>pending_teacher_review</td><td><a href="https://github.com/ZayneWenner/ai-for-math-paper" target="_blank" rel="noopener" style="color:#7dd3fc">ZayneWenner/ai-for-math-paper</a></td></tr><tr><td>2026-10-06 17:38:00 UTC</td><td class="code">C2A</td><td>MetaScope：已知-未知边界元认知校准基准</td><td><span class="tag ok">已审核</span></td><td>pending_teacher_review</td><td><a href="https://github.com/ZayneWenner/C2A-MetaScope-AGI-metacognition" target="_blank" rel="noopener" style="color:#7dd3fc">ZayneWenner/C2A-MetaScope-AGI-metacognition</a></td></tr><tr><td>2026-10-06 13:18:26 UTC</td><td class="code">C1</td><td>C1 课程资料获取与翻译（Stanford Vibe Coding 课程中文译介包）</td><td><span class="tag ok">已审核</span></td><td>pending_teacher_review</td><td><a href="https://github.com/ZayneWenner/stanford-vibe-coding-zh" target="_blank" rel="noopener" style="color:#7dd3fc">ZayneWenner/stanford-vibe-coding-zh</a></td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 数据字典 -->
+  <section id="view-dict" class="hide">
+    <div class="card">
+      <h2>数据字典与口径</h2>
+      <dl class="dict">
+        <dt>数据来源与权威性</dt>
+        <dd>
+          ① 平台 <code>list-challenges</code>：挑战定义与 <code>required_deliverables</code>，权威；
+          ② 平台 <code>list-my-submissions</code>：提交记录与状态，权威；
+          ③ 本地扫描脚本：仅用于校验「本机是否留有符合命名的交付物文件」，属于辅助证据，不能推翻平台状态。
+          三者冲突时以平台 API 为准，并在缺失项表中标注。
+        </dd>
+        <dt>challenge.code</dt>
+        <dd>从挑战标题用正则 <code>C\d{1,2}[A-Z]?</code> 提取的代号，仅用于展示与分组，不参与业务判断。</dd>
+        <dt>submission.status</dt>
+        <dd>平台提交状态。<code>checked</code> = 已审核并进入待教师评审；<code>needs_revision</code> = 需按意见返工，不会自动转通过。</dd>
+        <dt>submission.task_state</dt>
+        <dd>平台评估任务状态，可能为空。为空不等于失败，只表示平台未回填。</dd>
+        <dt>local_check.status</dt>
+        <dd>complete = 全部要求项命中；partial = 部分命中；empty = 有文件但零命中；not_scanned = 本机无该挑战目录。</dd>
+        <dt>覆盖率 coverage_pct</dt>
+        <dd>公式：已提交挑战数 ÷ 已发布且可识别代号的挑战数 × 100%。分母排除测试类挑战（如 T0）。</dd>
+        <dt>已知局限</dt>
+        <dd>
+          1) 平台仅提供本人提交记录，无法统计同班其他学生，故本仪表盘是「个人视角」，不是班级口径；
+          2) 本地扫描依赖命名约定，改名会导致误判为缺失；
+          3) 时区为 UTC，与北京时间相差 8 小时，跨日统计需注意。
+        </dd>
+        <dt>重新生成</dt>
+        <dd><code>python scan_submissions.py …</code> → <code>python build_dataset.py …</code> → 刷新浏览器。命令见 <code>贾静文_C6A_data/README.md</code>。</dd>
+      </dl>
+    </div>
+  </section>
+
+  <footer class="foot">
+    C6A 提交数据仪表盘 · 纯本地运行，无外部请求 · 数据快照 <span id="genAt2">2026-11-03T07:54:27Z</span>
+  </footer>
+</div>
+
+<div class="mask" id="mask"></div>
+<aside class="drawer" id="drawer">
+  <button class="close" id="btnClose">×</button>
+  <div id="drawerBody"></div>
+</aside>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+
+
+</body></html>
